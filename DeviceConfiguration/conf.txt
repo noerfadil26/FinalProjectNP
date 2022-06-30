@@ -1,0 +1,177 @@
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#MainRouter
+en
+conf t
+hostname MainRouter
+banner motd #Authorized Access Only!!#
+
+enable secret project
+service password-encryption
+no ip domain-lookup
+ip ssh version 2
+ip domain-name latestproject.com
+username latest secret project
+crypto key generate rsa general-keys modulus 1024
+
+line console 0
+password project
+login
+line vty 0 15
+password project
+transport input ssh
+login local
+exit
+
+interface g0/0/0
+ip address 10.10.10.1 255.255.255.0
+description Link to Kantor1
+no shutdown
+exit
+
+interface g0/0/1
+ip address 10.10.20.1 255.255.255.0
+description Link to Kantor2
+no shutdown
+exit
+
+router rip
+service 2
+network 10.10.10.0
+
+end
+copy running-config startup-config
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#RK1
+en
+conf t
+hostname RK1
+banner motd #Authorized Access Only!!#
+
+enable secret project
+service password-encryption
+no ip domain-lookup
+ip ssh version 2
+ip domain-name latestproject.com
+username latest secret project
+crypto key generate rsa general-keys modulus 1024
+
+line console 0
+password project
+login
+line vty 0 15
+password project
+transport input ssh
+login local
+exit
+
+interface g0/0/0
+ip address 10.10.10.2 255.255.255.0
+description Link to LAN
+no shutdown
+exit
+
+interface g0/0/1
+ip address 192.168.10.1 255.255.255.0
+description Link to LAN
+no shutdown
+exit
+
+router rip
+service 2
+network 10.10.10.0
+
+end
+copy running-config startup-config
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#RK2
+en
+conf t
+hostname MainRouter
+banner motd #Authorized Access Only!!#
+
+enable secret project
+service password-encryption
+no ip domain-lookup
+ip ssh version 2
+ip domain-name latestproject.com
+username latest secret project
+crypto key generate rsa general-keys modulus 1024
+
+line console 0
+password project
+login
+line vty 0 15
+password project
+transport input ssh
+login local
+exit
+
+interface g0/0/0
+ip address 10.10.10.1 255.255.255.0
+description Link to Kantor1
+no shutdown
+exit
+
+interface g0/0/1
+ip address 10.10.20.1 255.255.255.0
+description Link to Kantor2
+no shutdown
+exit
+
+router rip
+service 2
+network 10.10.10.0
+
+end
+copy running-config startup-config
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#SWK1
+en
+conf t
+hostname SWK1
+banner motd #Authorized Access Only!!#
+
+enable secret project
+service password-encryption
+no ip domain-lookup
+ip ssh version 2
+ip domain-name latestproject.com
+username latest secret project
+crypto key generate rsa general-keys modulus 1024
+
+line console 0
+password project
+login
+line vty 0 15
+password project
+transport input ssh
+login local
+exit
+
+vlan 100
+name HR
+exit
+int vlan 100
+ip address 192.168.100.1 255.255.255.0
+exit
+vlan 99
+name SVI
+exit
+int vlan 99
+ip address 192.168.99.1 255.255.255.0
+exit
+int g1/0/6
+switchport access vlan 100
+int g1/0/7
+switchport access vlan 100
+exit
+
+end
+copy running-config startup-config
+
+
