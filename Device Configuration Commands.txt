@@ -174,4 +174,29 @@ exit
 end
 copy running-config startup-config
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#SWK2
+en
+conf t
+hostname SWK2
+banner motd #Authorized Access Only!!#
+
+enable secret project
+service password-encryption
+no ip domain-lookup
+ip ssh version 2
+ip domain-name latestproject.com
+username latest secret project
+crypto key generate rsa general-keys modulus 1024
+
+line console 0
+password project
+login
+line vty 0 15
+password project
+transport input ssh
+login local
+exit
+
+
 
