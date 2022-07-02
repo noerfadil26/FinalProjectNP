@@ -3,7 +3,7 @@ import json
 
 api_url = "http://localhost:58000/api/v1/global-credential/cli"
 headers = {
-  'X-Auth-Token': 'NC-7-e3ea509862db4131b1b6-nbi',
+  'X-Auth-Token': 'NC-8-380f38c01ed343e5b0f4-nbi',
   'Content-Type': 'application/json'
 }
 body_json = {
