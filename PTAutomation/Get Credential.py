@@ -13,5 +13,5 @@ resp = requests.get(api_url, json.dumps(body_json), headers=headers,verify=False
 response_json = resp.json()
 credentials=response_json["response"]
 for credential in credentials:
-    print (" Description:\t",credential["description"],"\n","ID:\t",credential["id"],"\n",)
+    print (" Description:\t",credential["description"],"\n","ID:\t",credential["id"],"\n","ID:\t",credential["id"],"\n",)
 #print(resp.text)
