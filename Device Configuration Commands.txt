@@ -32,10 +32,6 @@ ip route 192.168.20.0 255.255.255.240 192.168.1.3
 end
 copy running-config startup-config
 
-//DONT
-int g0/0/0.100
-encapsulation dot1Q 100
-ip address 192.168.100.1 255.255.255.248
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #RK1
@@ -79,11 +75,6 @@ ip route 192.168.20.0 255.255.255.240 192.168.1.3
 ip route 192.168.1.0 255.255.255.248 192.168.1.1
 end
 copy running-config startup-config
-
-//DONT
-int g0/0/1.100
-encapsulation dot1Q 100
-ip address 192.168.100.1 255.255.255.248
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -129,10 +120,6 @@ ip route 192.168.1.0 255.255.255.248 192.168.1.1
 end
 copy running-config startup-config
 
-//DONT
-int g0/0/1.100
-encapsulation dot1Q 100
-ip address 192.168.100.1 255.255.255.248
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #MainSwitch
@@ -158,20 +145,6 @@ exit
 end
 copy running-config startup-config
 
-//
-vlan 100
-name SVI
-int vlan 100
-ip address 192.168.100.2 255.255.255.248
-exit
-int g1/0/24
-switchport mode access
-switchport access vlan 100
-exit
-int g1/0/1
-switchport mode trunk 
-exit
-ip default-gateway 192.168.100.1
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #SWK1
@@ -199,21 +172,17 @@ no shutdown
 ip address 192.168.10.14 255.255.255.14
 exit
 ip default-gateway 192.168.10.1
+vlan 200
+name Div-B
+int vlan 200
+ip address 192.168.200.1 255.255.255.248
+int range g1/0/20-24
+switch mode access
+switch access 200
+exit
 end
 copy running-config startup-config
 
-//DONT
-name SVI
-int vlan 100
-ip address 192.168.100.2 255.255.255.248
-exit
-int g1/0/24
-switchport mode access
-switchport access vlan 100
-exit
-int g1/0/1
-switchport mode trunk 
-exit
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #SWK2
@@ -241,20 +210,14 @@ no shutdown
 ip address 192.168.20.14 255.255.255.14
 exit
 ip default-gateway 192.168.10.1
+vlan 200
+name Div-B
+int vlan 200
+ip address 192.168.200.2 255.255.255.248
+int range g1/0/20-24
+switch mode access
+switch access 200
+exit
 end
 copy running-config startup-config
 
-//DONT
-vlan 100
-name SVI
-int vlan 100
-ip address 192.168.100.2 255.255.255.248
-exit
-int g1/0/24
-switchport mode access
-switchport access vlan 100
-exit
-int g1/0/1
-switchport mode trunk 
-exit
-ip default-gateway 192.168.100.1
