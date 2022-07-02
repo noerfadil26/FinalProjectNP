@@ -1,10 +1,10 @@
 import requests
 import json
-
 api_url = "http://localhost:58000/api/v1/discovery"
-
-headers = {'X-Auth-Token': 'NC-8-080562329a864ccf8225-nbi',
-            'Content-Type': 'application/json'}
+headers = {
+  'X-Auth-Token': 'NC-7-5924317466424992b3f2-nbi',
+  'Content-Type': 'application/json'
+}
 body_json = {
   "cdpLevel": "16",
   "retry": "3",
@@ -16,7 +16,5 @@ body_json = {
   "discoveryType": "CDP",
   "name": "OFFICE"
 }
-
-response = requests.post(api_url,json.dumps(body_json), headers=headers)
-
+response = requests.post(api_url,json.dumps(body_json), headers=headers, verify=False)
 print(response.text)
