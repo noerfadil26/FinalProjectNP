@@ -1,7 +1,9 @@
 import json
 import requests
 api_url = "http://localhost:58000/api/v1/ticket"
-headers = {"content-type": "application/json"}
+headers = {
+    "content-type": "application/json"
+}
 body_json = {
     "username": "final",
     "password": "project"  
