@@ -8,6 +8,6 @@ headers = {
   'X-Auth-Token': 'NC-8-080562329a864ccf8225-nbi'
 }
 
-response = requests.get(api_url, json.dumps(json_body),headers=headers)
+resp = requests.get(api_url, json.dumps(json_body),headers=headers)
 
-print(response.text)
+print(resp.text)
