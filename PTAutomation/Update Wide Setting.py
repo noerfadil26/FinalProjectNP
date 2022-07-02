@@ -1,6 +1,6 @@
 import requests
 import json
-headers = {'X-Auth-Token': 'NC-20-0db373c89ac14fdea07b-nbi','Content-Type': 'application/json'}
+headers = {'X-Auth-Token': 'NC-8-080562329a864ccf8225-nbi','Content-Type': 'application/json'}
 api_url = "http://localhost:58000/api/v1/wan/network-wide-setting"
 body_json = {
   "ntp": {
