@@ -2,14 +2,14 @@ import requests
 import json
 api_url = "http://localhost:58000/api/v1/discovery"
 headers = {
-  'X-Auth-Token': 'NC-8-380f38c01ed343e5b0f4-nbi',
+  'X-Auth-Token': 'NC-4-4fe35d1a2aa3498b875a-nbi',
   'Content-Type': 'application/json'
 }
 body_json = {
   "cdpLevel": "16",
   "retry": "3",
   "globalCredentialIdList": [
-    "79a3a9dc-f89f-4caa-b958-b06eecb07231"
+    "96f3a3e5-8235-4239-bda5-d5652f2bebee"
   ],
   "timeout": "5",
   "ipAddressList": "192.168.1.1",
