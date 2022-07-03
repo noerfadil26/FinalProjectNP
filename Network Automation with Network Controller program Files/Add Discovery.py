@@ -1,18 +1,20 @@
+#replace http://localhost:58000 with your network controller's IP address
+#insert your setting in (insert_....) without ()
 import requests
 import json
 api_url = "http://localhost:58000/api/v1/discovery"
 headers = {
-  'X-Auth-Token': 'NC-4-4fe35d1a2aa3498b875a-nbi',
+  'X-Auth-Token': '(insert_your_service-ticket_here)',
   'Content-Type': 'application/json'
 }
 body_json = {
   "cdpLevel": "16",
   "retry": "3",
   "globalCredentialIdList": [
-    "96f3a3e5-8235-4239-bda5-d5652f2bebee"
+    "(insert_your_globalCredentialIdList_here)"
   ],
   "timeout": "5",
-  "ipAddressList": "192.168.1.1",
+  "ipAddressList": "(insert_your_setting_here)",
   "discoveryType": "CDP",
   "name": "OFFICE"
 }

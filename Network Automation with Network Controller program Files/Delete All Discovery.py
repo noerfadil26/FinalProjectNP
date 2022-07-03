@@ -1,9 +1,11 @@
+#replace http://localhost:58000 with your network controller's IP address
+#insert your setting in (insert_....) without ()
 import requests
 import json
 api_url = "http://localhost:58000/api/v1/discovery"
-payload = "NC-8-380f38c01ed343e5b0f4-nbi"
+payload = "(insert_your_service-ticket_here)"
 headers = {
-  'X-Auth-Token': 'NC-8-380f38c01ed343e5b0f4-nbi',
+  'X-Auth-Token': '(insert_your_service-ticket_here)',
   'Content-Type': 'application/json'
 }
 response = requests.request("DELETE", api_url, headers=headers, data=payload, verify=False)

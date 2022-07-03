@@ -144,7 +144,7 @@ login local
 exit
 int vlan 1
 no shutdown
-ip address 192.168.1.4 255.255.255.240
+ip address 192.168.1.4 255.255.255.248
 exit
 ip default-gateway 192.168.1.1
 end
