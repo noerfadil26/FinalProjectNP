@@ -1,4 +1,4 @@
-#replace http://localhost:58000 with your network controller's IP address
+#replace http://localhost:58000 with your network controller's IP address (for internal access)
 #insert your setting in (insert_....) without ()
 import requests
 import json
